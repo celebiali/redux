@@ -1,12 +1,15 @@
 import React from 'react';
 
-function TodoItem({todo}) {
+function TodoItem({setTodos,todo,user,setModal}) {
 
     const deleteHandle = () => {
-        //todo
+        setTodos(todos => todos.filter(t => t.id !== todo.id))
     }
     const editHandle = () => {
-        //todo
+        setModal({
+            name: 'edit-todo',
+            data:todo
+        })
     }
 
     return (
@@ -14,8 +17,13 @@ function TodoItem({todo}) {
           <span style={{textDecoration: todo.done ? "line-through" : false}}>
               {todo.title} - {todo.user}
           </span>
-          <button onClick={editHandle}>Düzenle</button>
-          <button onClick={deleteHandle}>Sil</button>
+          {todo.user === user.id && (
+              <>
+                  <button onClick={editHandle}>Düzenle</button>
+                  <button onClick={deleteHandle}>Sil</button>
+              </>
+
+          )}
       </li>
     );
 }
