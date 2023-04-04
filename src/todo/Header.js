@@ -1,12 +1,11 @@
+import {useSelector} from "react-redux";
+import {logoutHandle,loginHandle} from "../utils";
 import React from 'react';
+function Header() {
+    const {user} = useSelector(state => state.auth)
 
-function Header({user,setUser}) {
-
-    const loginHandle = user => {
-        setUser(user)
-    }
-    const logoutHandle = () => {
-        setUser(false)
+    const login = user => {
+        loginHandle(user)
     }
 
     return (
@@ -14,8 +13,8 @@ function Header({user,setUser}) {
             <h2>Logo</h2>
             {!user && (
                 <nav>
-                    <button onClick={() => loginHandle({id:1,username:'alicelebi'})}>alicelebi</button>
-                    <button onClick={() => loginHandle({id:2,username:'user'})}>user</button>
+                    <button onClick={() => login({id:1,username:'alicelebi'})}>alicelebi</button>
+                    <button onClick={() => login({id:2,username:'user'})}>user</button>
                 </nav>
                 )}
             {

@@ -1,9 +1,13 @@
 import React from 'react';
 import TodoItem from "./TodoItem";
-function TodoList({todos,setTodos,user,setModal}) {
+import {useSelector} from "react-redux";
+function TodoList() {
+
+    const {todos} = useSelector(state => state.todo)
+
     return (
       <ul>
-              {todos.map((todo,key) => <TodoItem key={key} setModal={setModal} setTodos={setTodos} user={user} todo={todo} />)}
+              {todos.map((todo,key) => <TodoItem key={key} todo={todo} />)}
       </ul>
     );
 }

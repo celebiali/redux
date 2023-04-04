@@ -1,17 +1,21 @@
 import {useState} from "react";
 import {nanoid} from "nanoid";
-function AddTodo({setTodos,user}) {
+import {useSelector} from "react-redux";
+import { addTodo} from "../stores/todo";
+import {addTodoHandle} from "../utils";
+
+function AddTodo() {
+    const {user} = useSelector(state => state.auth)
     const [todo,setTodo] = useState('')
+
     const submitHandle = e => {
         e.preventDefault()
-        setTodos(todos => [
-            {
-                title: todo,
-                done: false,
-                id: nanoid(),
-                user: user.id //todo giriş yapan üyenin id sini ekle
-            },...todos
-        ])
+        addTodoHandle({
+            title: todo,
+            done: false,
+            id: nanoid(),
+            user: user.id //todo giriş yapan üyenin id sini ekle
+        })
         setTodo('')
     }
     return (

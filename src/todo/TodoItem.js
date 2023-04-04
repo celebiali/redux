@@ -1,17 +1,13 @@
 import React from 'react';
-
-function TodoItem({setTodos,todo,user,setModal}) {
-
+import {useSelector,useDispatch} from "react-redux";
+import {deleteTodoHandle, modal} from "../utils";
+function TodoItem({todo}) {
+    const {user} = useSelector(state => state.auth)
     const deleteHandle = () => {
-        setTodos(todos => todos.filter(t => t.id !== todo.id))
+        deleteTodoHandle(todo.id)
     }
     const editHandle = () => {
-        setModal({
-            name: 'edit-todo',
-            data:todo
-        })
-    }
-
+       modal('edit-todo',todo)}
     return (
       <li>
           <span style={{textDecoration: todo.done ? "line-through" : false}}>

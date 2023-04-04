@@ -1,11 +1,24 @@
 import React from 'react';
+import {useSelector,useDispatch} from "react-redux";
+import {closeModal} from "../stores/modal";
 
-function Modal({name, data, close}) {
-    console.log(close)
+import modals from "../modals";
+import EditTodo from "../modals/edit-todo";
+function Modal() {
+
+    const dispatch = useDispatch()
+    const {name,data} = useSelector(state => state.modal)
+
+    const modal = modals.find(m => m.name === name)
+    const close = () => {
+        dispatch(closeModal())
+    }
+
     return (
-        <div>
-            Modal içeriği <br/>
-            <button onClick={close}>Kapat</button>
+        <div className="modal">
+            <div className="modal-inner">
+                <EditTodo close={close} data={data}/>
+            </div>
         </div>
     );
 }

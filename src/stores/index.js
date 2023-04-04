@@ -1,10 +1,14 @@
+import todo from "./todo"
+import auth from "./auth"
+import modal from "./modal"
+
 const {configureStore} = require("@reduxjs/toolkit");
 
-import todo from "./todo"
-
-const store = configureStore({
+const store  = configureStore({
     reducer: {
-        todo
+        todo,
+        auth,
+        modal
     }
 })
 
