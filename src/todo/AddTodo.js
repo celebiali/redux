@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {nanoid} from "nanoid";
 import {useSelector} from "react-redux";
-import { addTodo} from "../stores/todo";
 import {addTodoHandle} from "../utils";
 
 function AddTodo() {

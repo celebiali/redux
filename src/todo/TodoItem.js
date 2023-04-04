@@ -1,11 +1,12 @@
 import React from 'react';
-import {useSelector,useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 import {deleteTodoHandle, modal} from "../utils";
 function TodoItem({todo}) {
     const {user} = useSelector(state => state.auth)
     const deleteHandle = () => {
         deleteTodoHandle(todo.id)
     }
+    console.log(todo,"todo")
     const editHandle = () => {
        modal('edit-todo',todo)}
     return (

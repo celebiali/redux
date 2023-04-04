@@ -9,7 +9,6 @@ import './utils'
 function App() {
 
   const {open: isModalOpen} = useSelector(state => state.modal)
-  const [todos,setTodos] = useState([])
   const [language,setLanguage] = useState('tr')
   const [dark,setDark] = useState(true)
 
