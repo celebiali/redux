@@ -1,7 +1,7 @@
 import todo from "./todo"
 import auth from "./auth"
 import modal from "./modal"
-import changeTheme from "./changeTheme"
+import changeSite from "./changeSite"
 
 const {configureStore} = require("@reduxjs/toolkit");
 
@@ -10,7 +10,7 @@ const store  = configureStore({
         todo,
         auth,
         modal,
-        changeTheme
+        site:changeSite
     }
 })
 

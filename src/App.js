@@ -5,6 +5,7 @@ import TodoList from "./todo/TodoList";
 import Modal from "./todo/Modal";
 import {useSelector} from "react-redux";
 import './utils'
+import Footer from "./todo/Footer";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Header />
           <AddTodo   />
           <TodoList  />
+          <Footer/>
       </main>
       );
 }
